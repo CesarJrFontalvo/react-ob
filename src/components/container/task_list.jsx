@@ -6,6 +6,7 @@ import TaskComponent from '../pure/task';
 // Importamos la hoja de estilos de task.scss
 import '../../styles/task.scss';
 import Taskform from '../pure/forms/taskForm';
+import TaskFormik from '../pure/forms/taskFormik';
 
 const TaskListComponent = () => {
 
@@ -120,7 +121,8 @@ const TaskListComponent = () => {
                     </div>
                 </div>
             </div>
-            <Taskform add={addTask} length={tasks.length}></Taskform>
+            {/* <Taskform add={addTask} length={tasks.length}></Taskform> */}
+            <TaskFormik add={addTask} length={tasks.length}></TaskFormik>
         </div>
     );
 };

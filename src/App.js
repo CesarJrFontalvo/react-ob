@@ -28,7 +28,7 @@ function App() {
         {/* Componente de ejemplo funcional */}
         {/* <Greetingf name="Martín"></Greetingf> */}
         {/* Componente de Listado de Tareas */}
-        {/* <TaskListComponent></TaskListComponent> */}
+        <TaskListComponent></TaskListComponent>
         {/* Ejemplos de uso de HOOKS */}
         {/* <Ejemplo1></Ejemplo1> */}
         {/* <Ejemplo2></Ejemplo2> */}
@@ -49,7 +49,7 @@ function App() {
 
       {/* Ejemplos de uso de Formik y Yup */}
       {/* <Loginformik></Loginformik> */}
-      <Registerformik></Registerformik>
+      {/* <Registerformik></Registerformik> */}
 
       {/* Ejemplos De procesos asínrconos */}
       {/* <Asyncexample></Asyncexample> */}
