@@ -30,7 +30,7 @@ const Loginformik = () => {
         // We save the data in the localstorage
         await localStorage.setItem('credentials', values);
         history.push('/profile');
-        
+
     }
     return (
         <div>
@@ -63,7 +63,7 @@ const Loginformik = () => {
                             )
                         }
 
-                        <label htmlFor="password"  className=' mt-2'>Password</label>
+                        <label htmlFor="password" className=' mt-2'>Password</label>
                         <Field
                             className='form-control mt-2'
                             id="password"
@@ -78,8 +78,12 @@ const Loginformik = () => {
                                 <ErrorMessage name="password" component='div'></ErrorMessage>
                             )
                         }
-                        <button type="submit">Login</button>
-                        {isSubmitting ? (<p>Login your credentials...</p>) : null}
+                        <div className='mt-2'>
+                            <button className=' btn btn-primary' type="submit">Login</button>
+                            {isSubmitting ? (<p>Login your credentials...</p>) : null}
+                            <button className='mx-4 btn btn-success' type="button" onClick={() => history.push('/register')}>Register</button>
+                        </div>
+
                     </Form>
                 )}
             </Formik>

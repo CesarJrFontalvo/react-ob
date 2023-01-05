@@ -7,7 +7,7 @@ const TaskFormik = ({ add, length }) => {
     const initialValues = {
         name: "",
         description: "",
-        level: LEVELS.NORMAL
+        level: ''
     }
     const taskSchema = Yup.object().shape(
         {
@@ -23,8 +23,9 @@ const TaskFormik = ({ add, length }) => {
                 // *** Yup Validation Schema ***
                 validationSchema={taskSchema}
                 // ** onSubmit Event
-                onSubmit={(values) => {
-                    add(values)
+                onSubmit={(values, actions) => {
+                    add(values);
+                    actions.resetForm({});
                 }}
             >
 

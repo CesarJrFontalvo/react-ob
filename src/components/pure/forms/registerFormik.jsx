@@ -5,9 +5,10 @@ import * as Yup from 'yup';
 // Models
 import { ROLES } from '../../../models/roles.enum';
 import { User } from '../../../models/user.class';
+import { useHistory } from 'react-router-dom';
 
 const Registerformik = () => {
-
+    const history = useHistory();
     let user = new User();
 
     const initialValues = {
@@ -52,9 +53,9 @@ const Registerformik = () => {
         <div>
             <h4>Register Formik</h4>
             <Formik
-                initialValues = {initialValues}
+                initialValues={initialValues}
                 // *** Yup Validation Schema ***
-                validationSchema = {registerSchema}
+                validationSchema={registerSchema}
                 // ** onSubmit Event
                 onSubmit={async (values) => {
                     await new Promise((r) => setTimeout(r, 1000));
@@ -62,71 +63,74 @@ const Registerformik = () => {
                 }}
             >
 
-            {({ values,
+                {({ values,
                     touched,
                     errors,
                     isSubmitting,
                     handleChange,
                     handleBlur }) => (
-                        <Form>
-                            <label htmlFor="username">Username</label>
-                            <Field id="username" type="text" name="username" placeholder="Your username" />
-                            
-                            {/* Username Errors */}
-                            {
-                                errors.username && touched.username && 
-                                (
-                                    <ErrorMessage name="username" component='div'></ErrorMessage>
-                                )
-                            }
+                    <Form>
+                        <label htmlFor="username">Username</label>
+                        <Field className='form-control' id="username" type="text" name="username" placeholder="Your username" />
 
-                            <label htmlFor="email">Email</label>
-                            <Field id="email" type="email" name="email" placeholder="example@email.com" />
+                        {/* Username Errors */}
+                        {
+                            errors.username && touched.username &&
+                            (
+                                <ErrorMessage name="username" component='div'></ErrorMessage>
+                            )
+                        }
 
-                            {/* Email Errors */}
-                            {
-                                errors.email && touched.email && 
-                                (
-                                    <ErrorMessage name="email" component='div'></ErrorMessage>
-                                )
-                            }
+                        <label htmlFor="email">Email</label>
+                        <Field className='form-control' id="email" type="email" name="email" placeholder="example@email.com" />
 
-                            <label htmlFor="password">Password</label>
-                            <Field
-                                id="password"
-                                name="password"
-                                placeholder="password"
-                                type='password'
-                            />
-                            {/* Password Errors */}
-                            {
-                                errors.password && touched.password && 
-                                (
-                                    <ErrorMessage name="password" component='div'></ErrorMessage>
-                                )
-                            }
+                        {/* Email Errors */}
+                        {
+                            errors.email && touched.email &&
+                            (
+                                <ErrorMessage name="email" component='div'></ErrorMessage>
+                            )
+                        }
 
-                            <label htmlFor="confirm">Password</label>
-                            <Field
-                                id="confirm"
-                                name="confirm"
-                                placeholder="confirm passsword"
-                                type='password'
-                            />
-                            {/* Confirm Password Errors */}
-                            {
-                                errors.confirm && touched.confirm && 
-                                (
-                                    <ErrorMessage name="confirm" component='div'></ErrorMessage>
-                                )
-                            }
+                        <label htmlFor="password">Password</label>
+                        <Field
+                            className='form-control'
+                            id="password"
+                            name="password"
+                            placeholder="password"
+                            type='password'
+                        />
+                        {/* Password Errors */}
+                        {
+                            errors.password && touched.password &&
+                            (
+                                <ErrorMessage name="password" component='div'></ErrorMessage>
+                            )
+                        }
 
-                            <button type="submit">Register Account</button>
-                            {isSubmitting ? (<p>Sending your credentials...</p>): null}
-
-                        </Form>
-                    )
-            }
+                        <label htmlFor="confirm">Password</label>
+                        <Field
+                            className='form-control'
+                            id="confirm"
+                            name="confirm"
+                            placeholder="confirm passsword"
+                            type='password'
+                        />
+                        {/* Confirm Password Errors */}
+                        {
+                            errors.confirm && touched.confirm &&
+                            (
+                                <ErrorMessage name="confirm" component='div'></ErrorMessage>
+                            )
+                        }
+                        <div className='mt-2'>
+                            <button className='btn btn-success' type="submit">Register Account</button>
+                            {isSubmitting ? (<p>Sending your credentials...</p>) : null}
+                            <button className='mx-4 btn btn-primary' type="button" onClick={() => history.push('/login')}>Login</button>
+                        </div>
+                    </Form>
+                )
+                }
 
             </Formik>
         </div>
