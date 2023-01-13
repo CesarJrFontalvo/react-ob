@@ -17,6 +17,7 @@ import Observableexample from './components/pure/ObservableExample';
 import Fetchexample from './components/pure/FetchExample';
 import Axiosexample from './components/pure/AxiosExample';
 import Axioscrudexample from './components/pure/AxiosCRUDExample';
+import RandomJoke from './components/pure/RandomJoke';
 
 function App() {
   return (
@@ -49,13 +50,14 @@ function App() {
 
       {/* Ejemplos de uso de Formik y Yup */}
       {/* <Loginformik></Loginformik> */}
-      <Registerformik></Registerformik>
+      {/* <Registerformik></Registerformik> */}
 
       {/* Ejemplos De procesos asínrconos */}
       {/* <Asyncexample></Asyncexample> */}
       {/* <Observableexample></Observableexample> */}
       {/* <Fetchexample></Fetchexample> */}
       {/* <Axiosexample></Axiosexample> */}
+      <RandomJoke/>
       {/* <Axioscrudexample></Axioscrudexample> */}
 
       {/* PROYECTO FINAL */}

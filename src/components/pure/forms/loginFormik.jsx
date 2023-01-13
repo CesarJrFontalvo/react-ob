@@ -26,10 +26,10 @@ const Loginformik = () => {
 
     const submit = async (values) => {
         await new Promise((r) => setTimeout(r, 1000));
-        alert(JSON.stringify(values, null, 2));
+        // alert(JSON.stringify(values, null, 2));
         // We save the data in the localstorage
-        await localStorage.setItem('credentials', values);
-        history.push('/profile');
+        await sessionStorage.setItem('credentials', values);
+        history.go('/profile');
 
     }
     return (

@@ -6,11 +6,12 @@ import Button from '@mui/material/Button';
 import Copyright from '../../components/pure/Copyright';
 
 const Dashboardpage = () => {
-
+    
     const history = useHistory();
 
     const logout = () => {
-        history.push('/login');
+        sessionStorage.clear();
+        history.go('/login');
     }
 
     return (
